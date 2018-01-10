@@ -59,7 +59,7 @@ int main() {
    if (new_socket > 0){
          printf("The Client is connected...\n");
     }
-   int i=0,avg=0,sum=0,lines=0;
+   int avg=0;
    if ((shmid = shmget(key, MAXSIZE, 0666)) < 0)
         die("shmget");
 
@@ -67,14 +67,6 @@ int main() {
         die("shmat");
    rand_arr = (int *)shm;
     //Now read what the server put in the memory.
-  /* for (i=0; i<50;i++)
-   {
-        sum+=rand_arr[i];
-        printf("%d\t",rand_arr[i]);
-   }
-   avg=sum/50;
-    */
-   printf("%d\t",rand_arr[i]);
    avg =rand_arr[0];
    recv(new_socket, buffer, bufsize, 0);
    sprintf(buffer,"%d",avg);
@@ -83,7 +75,6 @@ int main() {
 
    }
    close(create_socket);
-   free(buffer);
    return 0;
 }
   
