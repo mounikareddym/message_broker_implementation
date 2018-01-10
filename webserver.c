@@ -10,7 +10,7 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #define MAXSIZE     50
-#define PORT 15040
+#define PORT 15000
 
 void die(char *s)
 {
